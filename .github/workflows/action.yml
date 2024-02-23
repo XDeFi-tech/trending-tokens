@@ -2,7 +2,7 @@ name: run python script
 
 on:
   schedule:
-    - cron: '30 5,17 * * *'
+    - cron: '30 13,16 * * *'
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: execute py script # run main.py
-        run: python main.py
+        run: python trending-pools/main.py
 
       - name: commit files
         run: |
@@ -36,4 +36,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main 
+          branch: master
