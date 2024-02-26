@@ -1,14 +1,10 @@
 from decimal import Decimal
 import asyncio
 from asset import AssetInfo
-import logging
-from typing import Dict, Optional
-from constants import supported_chains, BASE_URL, TOKEN_URL, TRENDING_POOLS_URL, ASSETS_PATH, LIQUIDITY_THRESHOLD, VOLUME_THRESHOLD, FILE_LOGS
-from helpers import get_request, load_existing_tokens, write_json, parse_token_id
+from typing import Dict, Optional, List
+from constants import supported_chains, BASE_URL, TOKEN_URL, TRENDING_POOLS_URL, ASSETS_PATH, LIQUIDITY_THRESHOLD, VOLUME_THRESHOLD
+from helpers import get_request, load_existing_tokens, write_json, parse_token_id, log
 
-log = logging.getLogger(__name__)
-if FILE_LOGS:
-    log.addHandler(logging.FileHandler("output.log"))
 
 def find_asset_info(token_id, global_assets):
     for token in global_assets:
@@ -42,7 +38,7 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
                 return
             return shitcoin
         # New trending token
-        asset_details = (await get_request(BASE_URL + TOKEN_URL.format(network=chain, address=address), debug=True))["data"]
+        asset_details = (await get_request(BASE_URL + TOKEN_URL.format(network=chain, address=address)))["data"]
         log.warning(f"Adding new asset {chain}.{asset_details['attributes']['symbol']}-{address}.")
         return AssetInfo(
             id=base_token_id, 
@@ -57,7 +53,37 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
         log.error(f"error: {e}, id: {base_token_id}")
 
 async def process_pools(pools):
-    return await asyncio.gather(*[parse_pool(p) for p in pools])
+    assets = await asyncio.gather(*[parse_pool(p) for p in pools])
+    assets = list(filter(lambda x: x is not None, assets))
+    log.warning(f"Number of assets loaded: {len(assets)}")
+    current_ids, _ = load_existing_tokens()
+    new_assets_ids = set(map(lambda x: x["id"], assets))
+    ids_to_check = list(set(current_ids) - new_assets_ids)
+    log.warning(f"Number of old assets to verify: {len(ids_to_check)}")
+    if len(ids_to_check) > 0:
+        assets += await process_assets_left(ids_to_check)
+    if len(assets) > 0:
+        write_json(ASSETS_PATH, assets)
+
+async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
+    _, existing_assets = load_existing_tokens()
+    updated_assets = []
+    for id in assets_ids:
+        try:
+            chain, address = parse_token_id(id)
+            asset_details = (await get_request(BASE_URL + TOKEN_URL.format(network=chain, address=address), debug=True))["data"]
+            shitcoin = find_asset_info(id, existing_assets)
+            shitcoin["liquidity"] = asset_details["attributes"]["total_reserve_in_usd"]
+            shitcoin["volume24"] = asset_details["attributes"]["volume_usd"]["h24"]
+            # If the last 24h volume is below VOLUME_THRESHOLD then omit
+            if Decimal(shitcoin["volume24"]) < Decimal(VOLUME_THRESHOLD):
+                log.warning(f"Asset {shitcoin['chain']}.{shitcoin['symbol']}-{shitcoin['address']} removed because of low volume.")
+                continue
+            updated_assets.append(shitcoin)
+        except Exception as e:
+            log.warning(f"error in process_assets_left: {e}, id: {id}")
+    log.warning(f"Number of assets left that were updated and need to be added: {len(updated_assets)}")
+    return updated_assets
 
 async def fetch_pools(start=1, finish=None):
     i = start
@@ -72,9 +98,8 @@ async def fetch_pools(start=1, finish=None):
         except Exception as e:
             log.warning(f"Error in getting pools for page={i}, {e}")
             res = []
-    print(f"len(pools)={len(pools)}")
-    assets = await process_pools(pools)
-    assets = list(filter(lambda x: x is not None, assets))
-    log.warning(f"Assets length: {len(assets)}")
-    if len(assets) > 0:
-        write_json(ASSETS_PATH, assets)
+    return pools
+
+async def get_processed_pools():
+    pools = await fetch_pools()
+    await process_pools(pools)
