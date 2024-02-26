@@ -8,7 +8,7 @@ log = logging.getLogger(__name__)
 
 async def run_async():
     tic = time.time()
-    await fetch_pools(1, 6)
+    await fetch_pools()
     toc = time.time()
     log.warning(f"Fetching trending assets took: {round(toc-tic, 3)}s")
 

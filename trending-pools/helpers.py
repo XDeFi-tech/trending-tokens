@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 import logging
 import json
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 from functools import lru_cache
 
 from constants import ASSETS_PATH
@@ -52,3 +52,9 @@ def load_existing_tokens():
         return list(map(lambda x: x["id"], assets)), assets
     else:
         return [], []
+
+def parse_token_id(base_token_id: str) -> Tuple[str, str]:
+    parsed_id = base_token_id.split("_")
+    address = parsed_id[-1]
+    chain = "_".join(parsed_id[:-1])
+    return chain, address
