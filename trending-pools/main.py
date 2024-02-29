@@ -1,14 +1,12 @@
 import time
-import logging
 import asyncio
-from pool_processor import fetch_pools
-
-log = logging.getLogger(__name__)
+from pool_processor import get_processed_pools
+from helpers import log
 
 
 async def run_async():
     tic = time.time()
-    await fetch_pools(1, 6)
+    await get_processed_pools()
     toc = time.time()
     log.warning(f"Fetching trending assets took: {round(toc-tic, 3)}s")
 
