@@ -88,7 +88,7 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
 async def fetch_pools(start=1, finish=None):
     i = start
     pools = []
-    while (res:=(await get_request(BASE_URL + TRENDING_POOLS_URL.format(page=i), debug=True))["data"]) and len(res) > 0 and (i < finish if finish else True):
+    while (resp:=(await get_request(BASE_URL + TRENDING_POOLS_URL.format(page=i), debug=True))) and (res:=resp.get("data", [])) and len(res) > 0 and (i < finish if finish else True):
         i += 1
         pools += res
     return pools
