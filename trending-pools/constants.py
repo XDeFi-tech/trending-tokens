@@ -6,7 +6,21 @@ TRENDING_POOLS_URL = "/networks/trending_pools?page={page}"
 
 TOKEN_URL = "/networks/{network}/tokens/{address}"
 
-supported_chains = ["solana", "eth", "bsc", "avax", "optimism", "polygon_pos", "cro", "ftm", "aurora", "arbitrum", "xdai", "klaytn", "canto"]
+supported_chains = [
+    "solana",
+    "eth",
+    "bsc",
+    "avax",
+    "optimism",
+    "polygon_pos",
+    "cro",
+    "ftm",
+    "aurora",
+    "arbitrum",
+    "xdai",
+    "klaytn",
+    "canto",
+]
 
 ASSETS_PATH = os.path.dirname(__file__) + "/assets.json"
 

@@ -1,5 +1,6 @@
 from typing import NamedTuple
 
+
 class AssetInfo(NamedTuple):
     id: str
     chain: str
