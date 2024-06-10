@@ -187,7 +187,7 @@ async def test_parse_existing_pool(token_lists):
 
 
 @patch(
-    "helpers.load_existing_tokens",
+    "pool_processor.load_existing_tokens",
     return_value=(
         ["bsc_0xf48f91df403976060cc05dbbf8a0901b09fdefd4"],
         [
