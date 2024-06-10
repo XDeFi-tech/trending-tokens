@@ -39,6 +39,7 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
             )
             return
         existing_ids, existing_assets = load_existing_tokens()
+        log.warning(existing_assets)
         if base_token_id in existing_ids:
             # Update volume and liquidity
             shitcoin = find_asset_info(base_token_id, existing_assets)
@@ -92,7 +93,7 @@ async def process_pools(pools):
 
 async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
     _, existing_assets = load_existing_tokens()
-    updated_assets = []
+    updated_assets = set()
     for id in assets_ids:
         try:
             chain, address = parse_token_id(id)
@@ -110,13 +111,13 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
                     f"Asset {shitcoin['chain']}.{shitcoin['symbol']}-{shitcoin['address']} removed because of low volume."
                 )
                 continue
-            updated_assets.append(shitcoin)
+            updated_assets.add(shitcoin)
         except Exception as e:
             log.warning(f"error in process_assets_left: {e}, id: {id}")
     log.warning(
         f"Number of assets left that were updated and need to be added: {len(updated_assets)}"
     )
-    return updated_assets
+    return list(updated_assets)
 
 
 async def fetch_pools(start=1, finish=None):
