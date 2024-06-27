@@ -10,6 +10,7 @@ from constants import (
     ASSETS_PATH,
     LIQUIDITY_THRESHOLD,
     VOLUME_THRESHOLD,
+    POPULAR_QUOTE_ASSETS,
 )
 from helpers import get_request, load_existing_tokens, write_json, parse_token_id, log
 
@@ -30,16 +31,18 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
             return
         base_token_id = p["relationships"]["base_token"]["data"]["id"]
         chain, address = parse_token_id(base_token_id)
-        if address == "So11111111111111111111111111111111111111112":
+        address_exclusion_list = list(POPULAR_QUOTE_ASSETS.values())
+        if address in address_exclusion_list:
             base_token_id = p["relationships"]["quote_token"]["data"]["id"]
             chain, address = parse_token_id(base_token_id)
+            if address in address_exclusion_list:
+                return
         if chain not in supported_chains:
             log.warning(
                 f"Not including pool {p['attributes']['name']}. Chain {chain} not supported."
             )
             return
         existing_ids, existing_assets = load_existing_tokens()
-        log.warning(existing_assets)
         if base_token_id in existing_ids:
             # Update volume and liquidity
             shitcoin = find_asset_info(base_token_id, existing_assets)
@@ -93,10 +96,14 @@ async def process_pools(pools):
 
 async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
     _, existing_assets = load_existing_tokens()
-    updated_assets = set()
+    updated_assets = []
+    updated_ids = []
     for id in assets_ids:
         try:
             chain, address = parse_token_id(id)
+            address_exclusion_list = list(POPULAR_QUOTE_ASSETS.values())
+            if address in address_exclusion_list:
+                continue
             asset_details = (
                 await get_request(
                     BASE_URL + TOKEN_URL.format(network=chain, address=address)
@@ -111,13 +118,15 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
                     f"Asset {shitcoin['chain']}.{shitcoin['symbol']}-{shitcoin['address']} removed because of low volume."
                 )
                 continue
-            updated_assets.add(shitcoin)
+            if shitcoin["id"] not in updated_ids:
+                updated_assets.append(shitcoin)
+                updated_ids.append(shitcoin["id"])
         except Exception as e:
             log.warning(f"error in process_assets_left: {e}, id: {id}")
     log.warning(
         f"Number of assets left that were updated and need to be added: {len(updated_assets)}"
     )
-    return list(updated_assets)
+    return updated_assets
 
 
 async def fetch_pools(start=1, finish=None):
