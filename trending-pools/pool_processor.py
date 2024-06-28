@@ -10,7 +10,7 @@ from constants import (
     ASSETS_PATH,
     LIQUIDITY_THRESHOLD,
     VOLUME_THRESHOLD,
-    POPULAR_QUOTE_ASSETS,
+    EXCLUSION_LIST,
 )
 from helpers import get_request, load_existing_tokens, write_json, parse_token_id, log
 
@@ -31,11 +31,10 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
             return
         base_token_id = p["relationships"]["base_token"]["data"]["id"]
         chain, address = parse_token_id(base_token_id)
-        address_exclusion_list = list(POPULAR_QUOTE_ASSETS.values())
-        if address in address_exclusion_list:
+        if address in EXCLUSION_LIST:
             base_token_id = p["relationships"]["quote_token"]["data"]["id"]
             chain, address = parse_token_id(base_token_id)
-            if address in address_exclusion_list:
+            if address in EXCLUSION_LIST:
                 return
         if chain not in supported_chains:
             log.warning(
@@ -101,8 +100,7 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
     for id in assets_ids:
         try:
             chain, address = parse_token_id(id)
-            address_exclusion_list = list(POPULAR_QUOTE_ASSETS.values())
-            if address in address_exclusion_list:
+            if address in EXCLUSION_LIST:
                 continue
             asset_details = (
                 await get_request(
