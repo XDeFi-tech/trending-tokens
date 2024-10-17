@@ -67,7 +67,7 @@ minu_pool_low_liquidity = {
         "address": "0x91d8d7dfcadc8e04195e75069e1316e01ba7f01c",
         "name": "MINU / WBNB",
         "volume_usd": {"h1": "2475.753838700075959", "h24": "2671.45"},
-        "reserve_in_usd": "39499.3869",
+        "reserve_in_usd": "19499.3869",
     },
     "relationships": {
         "base_token": {
