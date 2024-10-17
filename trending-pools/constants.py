@@ -24,9 +24,9 @@ supported_chains = [
 
 ASSETS_PATH = os.path.dirname(__file__) + "/assets.json"
 
-LIQUIDITY_THRESHOLD = 4e4
+LIQUIDITY_THRESHOLD = 2e4
 
-VOLUME_THRESHOLD = 1.5e4
+VOLUME_THRESHOLD = 1e4
 
 FILE_LOGS = os.getenv("FILE_LOGS", 0)
 
