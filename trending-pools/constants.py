@@ -1,25 +1,19 @@
 import os
 
-BASE_URL = "https://api.geckoterminal.com/api/v2"
+BASE_URL = "https://public-api.dextools.io/standard/v2"
 
-TRENDING_POOLS_URL = "/networks/trending_pools?page={page}"
+TRENDING_POOLS_URL = "/pool/{chain}"
 
-TOKEN_URL = "/networks/{network}/tokens/{address}"
+TOKEN_URL = "/token/{chain}"
 
 supported_chains = [
     "solana",
-    "eth",
+    "ether",
     "bsc",
-    "avax",
+    "avalanche",
     "optimism",
-    "polygon_pos",
-    "cro",
-    "ftm",
-    "aurora",
+    "polygon",
     "arbitrum",
-    "xdai",
-    "klaytn",
-    "canto",
 ]
 
 ASSETS_PATH = os.path.dirname(__file__) + "/assets.json"
