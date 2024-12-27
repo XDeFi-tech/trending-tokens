@@ -1,7 +1,7 @@
 from decimal import Decimal
 import asyncio
 from asset import AssetInfo
-from typing import Dict, Optional, List
+from typing import Any, Dict, Optional, List
 from constants import (
     supported_chains,
     BASE_URL,
@@ -11,6 +11,8 @@ from constants import (
     LIQUIDITY_THRESHOLD,
     VOLUME_THRESHOLD,
     EXCLUSION_LIST,
+    FROM_TIME,
+    TO_TIME
 )
 from helpers import get_request, load_existing_tokens, write_json, parse_token_id, log
 
@@ -22,6 +24,16 @@ def find_asset_info(token_id, global_assets):
 
 
 async def parse_pool(p: Dict) -> Optional[Dict]:
+    # Token request params
+    params: Dict[str, Any] = {
+        "sort": "creationTime",
+        "order": "desc",
+        "from": FROM_TIME,
+        "to": TO_TIME,
+        "page": 1,
+        "pageSize": 50,
+        "totalPages": 5,
+    }
     base_token_id = None
     try:
         if Decimal(p["attributes"]["reserve_in_usd"]) < Decimal(LIQUIDITY_THRESHOLD):
@@ -60,7 +72,7 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
         # New trending token
         asset_details = (
             await get_request(
-                BASE_URL + TOKEN_URL.format(network=chain, address=address)
+                BASE_URL + TOKEN_URL.format(network=chain, address=address), params=params
             )
         )["data"]
         log.warning(
@@ -130,6 +142,7 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
 async def fetch_pools(start=1, finish=None):
     i = start
     pools = []
+
     while (
         (
             resp := (

@@ -1,8 +1,9 @@
 import os
+from datetime import datetime, timedelta
 
 BASE_URL = "https://public-api.dextools.io/standard/v2"
 
-TRENDING_POOLS_URL = "/pool/{chain}"
+TRENDING_POOLS_URL = "/pool/{chain}/pools/trending"
 
 TOKEN_URL = "/token/{chain}"
 
@@ -37,3 +38,10 @@ POPULAR_QUOTE_ASSETS = {
 }
 
 EXCLUSION_LIST = list(POPULAR_QUOTE_ASSETS.values())
+
+# Get from time and current time
+two_hours_ago = datetime.now() - timedelta(hours=1)
+FROM_TIME: str = two_hours_ago.strftime("%Y-%m-%d %H:%M:%S")
+
+now = datetime.now()
+TO_TIME: str = now.strftime("%Y-%m-%d %H:%M:%S")
