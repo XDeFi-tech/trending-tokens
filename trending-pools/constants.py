@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 BASE_URL = "https://public-api.dextools.io/standard/v2"
 
-TRENDING_POOLS_URL = "/pool/{chain}/pools/trending"
+TRENDING_POOLS_URL = "/pool/{chain}/{address}/price"
 
 TOKEN_URL = "/token/{chain}"
 

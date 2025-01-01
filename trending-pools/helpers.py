@@ -11,7 +11,7 @@ if FILE_LOGS:
     log.addHandler(logging.FileHandler("output.log", mode="w"))
 
 
-async def get_request(url, params, nbRetry=1, headers=None, debug=False):
+async def get_request(url, params: Optional[Dict], nbRetry=1, headers=None, debug=False):
     if nbRetry == 0:
         raise Exception(f"get_request Max retry in request exceeded for {url}")
     try:
