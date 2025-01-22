@@ -1,9 +1,10 @@
-import aiohttp
 import asyncio
-import logging
 import json
-from typing import Dict, Optional, Tuple
+import logging
 from functools import lru_cache
+from typing import Dict, Optional, Tuple
+
+import aiohttp
 from constants import ASSETS_PATH, FILE_LOGS
 
 log = logging.getLogger("globalLogger")

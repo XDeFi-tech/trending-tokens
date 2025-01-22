@@ -1,7 +1,8 @@
-import time
 import asyncio
-from pool_processor import get_processed_pools
+import time
+
 from helpers import log
+from pool_processor import get_processed_pools
 
 
 async def run_async():

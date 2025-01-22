@@ -1,18 +1,19 @@
-from decimal import Decimal
 import asyncio
+from decimal import Decimal
+from typing import Dict, List, Optional
+
 from asset import AssetInfo
-from typing import Dict, Optional, List
 from constants import (
-    supported_chains,
+    ASSETS_PATH,
     BASE_URL,
+    EXCLUSION_LIST,
+    LIQUIDITY_THRESHOLD,
     TOKEN_URL,
     TRENDING_POOLS_URL,
-    ASSETS_PATH,
-    LIQUIDITY_THRESHOLD,
     VOLUME_THRESHOLD,
-    EXCLUSION_LIST,
+    supported_chains,
 )
-from helpers import get_request, load_existing_tokens, write_json, parse_token_id, log
+from helpers import get_request, load_existing_tokens, log, parse_token_id, write_json
 
 
 def find_asset_info(token_id, global_assets):

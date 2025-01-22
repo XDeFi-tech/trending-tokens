@@ -1,6 +1,7 @@
-import pytest
-import sys
 import os
+import sys
+
+import pytest
 from mock import patch
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)) + "/trending-pools")
