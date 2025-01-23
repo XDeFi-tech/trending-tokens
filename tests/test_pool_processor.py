@@ -215,7 +215,7 @@ async def test_parse_low_liquidity_pool():
 
 
 @patch(
-    "helpers.get_request",
+    "http.get_request",
     return_value={
         "data": {
             "id": "solana_CdvCJJQHeU7qzpDWsRjR2E1Vp7GoQfBtg4joR9yprR5Z",

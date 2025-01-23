@@ -1,40 +1,14 @@
-import asyncio
 import json
 import logging
+from copy import deepcopy
 from functools import lru_cache
 from typing import Dict, Optional, Tuple
 
-import aiohttp
 from constants import ASSETS_PATH, FILE_LOGS
 
 log = logging.getLogger("globalLogger")
 if FILE_LOGS:
     log.addHandler(logging.FileHandler("output.log", mode="w"))
-
-
-async def get_request(url, nbRetry=1, headers=None, debug=False):
-    if nbRetry == 0:
-        raise Exception(f"get_request Max retry in request exceeded for {url}")
-    try:
-        async with aiohttp.ClientSession(headers=headers) as session:
-            loop = asyncio.get_event_loop()
-            start_time = loop.time()
-            async with session.get(url, ssl=False) as resp:
-                if debug:
-                    log.warning(
-                        f"Response status for {url}: {resp.status}, time elapsed: {loop.time() - start_time}"
-                    )
-                if resp.status > 299:
-                    log.warning(
-                        f"GET request failed for {url} with status code: {resp.status}. Response text: {await resp.text(encoding='utf-8')}"
-                    )
-                return await resp.json(content_type=resp.content_type)
-    except json.JSONDecodeError as e:
-        log.error(e)
-        raise e
-    except Exception as e:
-        log.warning(f"Retry request..., error : {e}")
-        await get_request(url, nbRetry - 1)
 
 
 def read_json(filename: str) -> Optional[Dict]:
@@ -67,3 +41,17 @@ def parse_token_id(base_token_id: str) -> Tuple[str, str]:
     address = parsed_id[-1]
     chain = "_".join(parsed_id[:-1])
     return chain, address
+
+
+def remove_none(*, dictionary: Dict) -> Dict:
+    dictionary = deepcopy(dictionary)
+    for key, value in list(dictionary.items()):
+        if value is None:
+            del dictionary[key]
+        elif isinstance(value, dict):
+            remove_none(dictionary=value)
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    remove_none(dictionary=item)
+    return dictionary

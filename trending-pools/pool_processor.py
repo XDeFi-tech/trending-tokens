@@ -2,18 +2,18 @@ import asyncio
 from decimal import Decimal
 from typing import Dict, List, Optional
 
-from asset import AssetInfo
+from models import AssetInfo
 from constants import (
     ASSETS_PATH,
-    BASE_URL,
     EXCLUSION_LIST,
     LIQUIDITY_THRESHOLD,
-    TOKEN_URL,
-    TRENDING_POOLS_URL,
     VOLUME_THRESHOLD,
     supported_chains,
 )
-from helpers import get_request, load_existing_tokens, log, parse_token_id, write_json
+from helpers import load_existing_tokens, log, parse_token_id, write_json
+from clients.geckoterminal.client import GeckoterminalClient
+
+gecko_client = GeckoterminalClient()
 
 
 def find_asset_info(token_id, global_assets):
@@ -59,11 +59,10 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
                 return
             return shitcoin
         # New trending token
-        asset_details = (
-            await get_request(
-                BASE_URL + TOKEN_URL.format(network=chain, address=address)
-            )
-        )["data"]
+        gecko_client
+        asset_details = (await gecko_client.get_token(network=chain, address=address, num_retries=3))[
+            "data"
+        ]
         log.warning(
             f"Adding new asset {chain}.{asset_details['attributes']['symbol']}-{address}."
         )
@@ -104,9 +103,7 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
             if address in EXCLUSION_LIST:
                 continue
             asset_details = (
-                await get_request(
-                    BASE_URL + TOKEN_URL.format(network=chain, address=address)
-                )
+                await gecko_client.get_token(network=chain, address=address, num_retries=3)
             )["data"]
             shitcoin = find_asset_info(id, existing_assets)
             shitcoin["liquidity"] = asset_details["attributes"]["total_reserve_in_usd"]
@@ -131,14 +128,9 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
 async def fetch_pools(start=1, finish=None):
     i = start
     pools = []
+
     while (
-        (
-            resp := (
-                await get_request(
-                    BASE_URL + TRENDING_POOLS_URL.format(page=i), debug=True
-                )
-            )
-        )
+        (resp := (await gecko_client.get_trending_pools(page=i, debug=True, num_retries= 3)))
         and (res := resp.get("data", []))
         and len(res) > 0
         and (i < finish if finish else True)
