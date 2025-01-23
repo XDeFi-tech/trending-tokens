@@ -60,9 +60,9 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
             return shitcoin
         # New trending token
         gecko_client
-        asset_details = (await gecko_client.get_token(network=chain, address=address, num_retries=3))[
-            "data"
-        ]
+        asset_details = (
+            await gecko_client.get_token(network=chain, address=address, num_retries=3)
+        )["data"]
         log.warning(
             f"Adding new asset {chain}.{asset_details['attributes']['symbol']}-{address}."
         )
@@ -103,7 +103,9 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
             if address in EXCLUSION_LIST:
                 continue
             asset_details = (
-                await gecko_client.get_token(network=chain, address=address, num_retries=3)
+                await gecko_client.get_token(
+                    network=chain, address=address, num_retries=3
+                )
             )["data"]
             shitcoin = find_asset_info(id, existing_assets)
             shitcoin["liquidity"] = asset_details["attributes"]["total_reserve_in_usd"]
@@ -130,7 +132,11 @@ async def fetch_pools(start=1, finish=None):
     pools = []
 
     while (
-        (resp := (await gecko_client.get_trending_pools(page=i, debug=True, num_retries= 3)))
+        (
+            resp := (
+                await gecko_client.get_trending_pools(page=i, debug=True, num_retries=3)
+            )
+        )
         and (res := resp.get("data", []))
         and len(res) > 0
         and (i < finish if finish else True)

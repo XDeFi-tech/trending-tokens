@@ -15,6 +15,7 @@ log = logging.getLogger(__name__)
 if FILE_LOGS:
     log.addHandler(logging.FileHandler("output.log", mode="w"))
 
+
 class BaseFetcherException(Exception):
     """Base exception class."""
 
