@@ -1,7 +1,7 @@
 from decimal import Decimal
 import asyncio
 from asset import AssetInfo
-from typing import Dict, Optional, List
+from typing import Any, Dict, Optional, List
 from constants import (
     supported_chains,
     BASE_URL,
@@ -11,6 +11,8 @@ from constants import (
     LIQUIDITY_THRESHOLD,
     VOLUME_THRESHOLD,
     EXCLUSION_LIST,
+    FROM_TIME,
+    TO_TIME
 )
 from helpers import get_request, load_existing_tokens, write_json, parse_token_id, log
 
@@ -22,14 +24,23 @@ def find_asset_info(token_id, global_assets):
 
 
 async def parse_pool(p: Dict) -> Optional[Dict]:
+    # Token request params
+    params: Dict[str, Any] = {
+        "sort": "creationTime",
+        "order": "desc",
+        "from": FROM_TIME,
+        "to": TO_TIME,
+        "pageSize": 50,
+        "totalPages": 5,
+    }
     base_token_id = None
     try:
-        if Decimal(p["attributes"]["reserve_in_usd"]) < Decimal(LIQUIDITY_THRESHOLD):
+        if Decimal(p['attributes']['reserves']) < Decimal(LIQUIDITY_THRESHOLD):
             log.error(
-                f"Not including pool {p['attributes']['name']}. Not enough liquidity."
+                f"Not including pool {p['data']['name']}. Not enough liquidity."
             )
             return
-        base_token_id = p["relationships"]["base_token"]["data"]["id"]
+        base_token_id = p['relationships']['base_token']['data']['id']
         chain, address = parse_token_id(base_token_id)
         if address in EXCLUSION_LIST:
             base_token_id = p["relationships"]["quote_token"]["data"]["id"]
@@ -60,20 +71,20 @@ async def parse_pool(p: Dict) -> Optional[Dict]:
         # New trending token
         asset_details = (
             await get_request(
-                BASE_URL + TOKEN_URL.format(network=chain, address=address)
+                BASE_URL + TOKEN_URL.format(network=chain, address=address), params=params
             )
         )["data"]
         log.warning(
-            f"Adding new asset {chain}.{asset_details['attributes']['symbol']}-{address}."
+            f"Adding new asset {chain}.{asset_details['data']['tokens']['symbol']}-{address}."
         )
         return AssetInfo(
             id=base_token_id,
             chain=chain,
             address=address,
-            decimals=asset_details["attributes"]["decimals"],
-            symbol=asset_details["attributes"]["symbol"],
-            liquidity=p["attributes"]["reserve_in_usd"],
-            volume24=p["attributes"]["volume_usd"]["h24"],
+            decimals=asset_details['data']['tokens']['decimals'],
+            symbol=asset_details['data']['tokens']['symbol'],
+            liquidity=p['data']['reserve_in_usd'],
+            volume24=p['data']['volume24h'],
         )._asdict()
     except Exception as e:
         log.error(f"error: {e}, id: {base_token_id}")
@@ -94,6 +105,13 @@ async def process_pools(pools):
 
 
 async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
+    params = {
+        "pageSize": 100,
+        "sort": "creationTime",
+        "order": "desc",
+        "from": FROM_TIME,
+        "to": TO_TIME
+    }
     _, existing_assets = load_existing_tokens()
     updated_assets = []
     updated_ids = []
@@ -104,12 +122,12 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
                 continue
             asset_details = (
                 await get_request(
-                    BASE_URL + TOKEN_URL.format(network=chain, address=address)
+                    BASE_URL + TOKEN_URL.format(network=chain, address=address), params=params
                 )
             )["data"]
             shitcoin = find_asset_info(id, existing_assets)
-            shitcoin["liquidity"] = asset_details["attributes"]["total_reserve_in_usd"]
-            shitcoin["volume24"] = asset_details["attributes"]["volume_usd"]["h24"]
+            shitcoin["liquidity"] = asset_details["data"]["reserves"]
+            shitcoin["volume24"] = asset_details["data"]["volume24h"]
             # If the last 24h volume is below VOLUME_THRESHOLD then omit
             if Decimal(shitcoin["volume24"]) < Decimal(VOLUME_THRESHOLD):
                 log.warning(
@@ -130,6 +148,7 @@ async def process_assets_left(assets_ids: List[str]) -> List[Dict]:
 async def fetch_pools(start=1, finish=None):
     i = start
     pools = []
+
     while (
         (
             resp := (
