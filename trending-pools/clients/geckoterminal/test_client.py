@@ -10,7 +10,7 @@ def gecko_client() -> GeckoterminalClient:
 
 @pytest.mark.asyncio
 # To run tests comment the line below
-# @pytest.mark.skip(reason="makes actual http calls.")
+@pytest.mark.skip(reason="makes actual http calls.")
 async def test_get_trending_pools(gecko_client: GeckoterminalClient):
     page_1 = await gecko_client.get_trending_pools(page=1)
     assert page_1.get('data')
@@ -19,7 +19,7 @@ async def test_get_trending_pools(gecko_client: GeckoterminalClient):
 
 @pytest.mark.asyncio
 # To run tests comment the line below
-# @pytest.mark.skip(reason="makes actual http calls.")
+@pytest.mark.skip(reason="makes actual http calls.")
 async def test_get_token(gecko_client: GeckoterminalClient):
     vine_on_solana = await gecko_client.get_token(
         network="solana", address="6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump"
