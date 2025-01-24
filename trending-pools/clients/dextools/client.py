@@ -32,7 +32,7 @@ class DexToolsClient(BaseAsyncHttpClient):
 
         if self._api_key:
             headers["X-API-Key"] = self._api_key
-        
+
         return headers
 
     async def get_solana_pools(
