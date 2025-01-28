@@ -31,6 +31,7 @@ async def test_get_pools_liquidity(dextools_client: DexToolsClient):
     )
     pass
 
+
 @pytest.mark.asyncio
 # To run tests comment the line below
 @pytest.mark.skip(reason="makes actual http calls.")

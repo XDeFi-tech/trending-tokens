@@ -238,7 +238,7 @@ async def _get_request(
         async with session.get(url) as resp:
             if debug:
                 log.info(f"Response status for {url} : {resp.status}")
-            
+
             if resp.status > 299:
                 log.warning(
                     f"GET request failed for {url} with status code: {resp.status}. Response text: {await resp.text(encoding='utf-8')}"

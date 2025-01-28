@@ -230,7 +230,9 @@ class DexToolsClient(BaseAsyncHttpClient):
             log.error(f"error: {e}, id: {base_token_id}")
 
     async def process_pools(self, pools: List[Dict], chain: str):
-        assets = await asyncio.gather(*[self.parse_pool(pool=p, chain=chain) for p in pools])
+        assets = await asyncio.gather(
+            *[self.parse_pool(pool=p, chain=chain) for p in pools]
+        )
         # assets = []
         # for pool in pools:
         #     assets.append(await self.parse_pool(pool=pool, chain=chain))
