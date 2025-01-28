@@ -53,6 +53,7 @@ async def get_request(
     query: Dict = None,
     timeout: int = HTTP_REQUEST_TIMEOUT,
     num_retries: int = 1,
+    backoff_on_rate_limit: bool = True,
     debug: bool = False,
     response_type: str = "json",
     override_metric_attrs: Optional[Dict] = None,
@@ -237,6 +238,7 @@ async def _get_request(
         async with session.get(url) as resp:
             if debug:
                 log.info(f"Response status for {url} : {resp.status}")
+            
             if resp.status > 299:
                 log.warning(
                     f"GET request failed for {url} with status code: {resp.status}. Response text: {await resp.text(encoding='utf-8')}"

@@ -1,1 +1,245 @@
-[{"id": "solana_6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump", "chain": "solana", "address": "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump", "decimals": 6, "symbol": "VINE", "liquidity": "4421008.6026", "volume24": "69038617.1961435"}, {"id": "solana_6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN", "chain": "solana", "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN", "decimals": 6, "symbol": "TRUMP", "liquidity": "673702054.4312", "volume24": "144789070.41924"}, {"id": "solana_FV5jxCRt66m8rSnpYDm8SRvhUe3Q8BTcRT67ihBspump", "chain": "solana", "address": "FV5jxCRt66m8rSnpYDm8SRvhUe3Q8BTcRT67ihBspump", "decimals": 6, "symbol": "Mohammad", "liquidity": "264486.237", "volume24": "88758323.1897816"}, {"id": "solana_6gSXeE5sqYt9GrBRG6yy9s9ayWhuWL55GtvPSncTpump", "chain": "solana", "address": "6gSXeE5sqYt9GrBRG6yy9s9ayWhuWL55GtvPSncTpump", "decimals": 6, "symbol": "Stargate", "liquidity": "307010.7032", "volume24": "69639476.4880037"}, {"id": "solana_Cq16t8jRSxtQDcPyANothLYemBDkN6SVKjqSDZ99pump", "chain": "solana", "address": "Cq16t8jRSxtQDcPyANothLYemBDkN6SVKjqSDZ99pump", "decimals": 6, "symbol": "WLFI", "liquidity": "320273.8088", "volume24": "18981487.9616949"}, {"id": "solana_BAezfVmia8UYLt4rst6PCU4dvL2i2qHzqn4wGhytpNJW", "chain": "solana", "address": "BAezfVmia8UYLt4rst6PCU4dvL2i2qHzqn4wGhytpNJW", "decimals": 6, "symbol": "Ainti", "liquidity": "713371.9529", "volume24": "54998909.5323925"}, {"id": "solana_DiSetnR7k57wmfvywJhUVjPwWfg54SdQKxQdJEBYW23B", "chain": "solana", "address": "DiSetnR7k57wmfvywJhUVjPwWfg54SdQKxQdJEBYW23B", "decimals": 2, "symbol": "DNA", "liquidity": "482746.9464", "volume24": "8372871.97546287"}, {"id": "solana_EqeEBGHQhQy6SqeaJcnqAsNs3qaG19sdF89Xsarpump", "chain": "solana", "address": "EqeEBGHQhQy6SqeaJcnqAsNs3qaG19sdF89Xsarpump", "decimals": 6, "symbol": "TRUST", "liquidity": "660195.1344", "volume24": "17717650.2958104"}, {"id": "solana_Gv8mfuosgCKCj9tPs9VWS1GzETemr69Lnr2jwjbWpump", "chain": "solana", "address": "Gv8mfuosgCKCj9tPs9VWS1GzETemr69Lnr2jwjbWpump", "decimals": 6, "symbol": "HSM", "liquidity": "550331.3234", "volume24": "39424207.5154537"}, {"id": "solana_FmkD8vrRaxAeXfmG6WtpUjcd3kXYcWLcNWpmjsE7pump", "chain": "solana", "address": "FmkD8vrRaxAeXfmG6WtpUjcd3kXYcWLcNWpmjsE7pump", "decimals": 6, "symbol": "SOLY", "liquidity": "341306.8133", "volume24": "51760312.1764068"}, {"id": "solana_6NcdiK8B5KK2DzKvzvCfqi8EHaEqu48fyEzC8Mm9pump", "chain": "solana", "address": "6NcdiK8B5KK2DzKvzvCfqi8EHaEqu48fyEzC8Mm9pump", "decimals": 6, "symbol": "STONKS", "liquidity": "1412659.2691", "volume24": "268926308.893479"}, {"id": "solana_GU7aPQnDmoXA13gUy6L27utgdp6QVZy3P6cJ94Sbpump", "chain": "solana", "address": "GU7aPQnDmoXA13gUy6L27utgdp6QVZy3P6cJ94Sbpump", "decimals": 6, "symbol": "TWITTER", "liquidity": "481717.2394", "volume24": "49309405.8671293"}, {"id": "solana_FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P", "chain": "solana", "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P", "decimals": 6, "symbol": "MELANIA", "liquidity": "52246466.2414", "volume24": "82289145.6501355"}, {"id": "solana_9DHe3pycTuymFk4H4bbPoAJ4hQrr2kaLDF6J6aAKpump", "chain": "solana", "address": "9DHe3pycTuymFk4H4bbPoAJ4hQrr2kaLDF6J6aAKpump", "decimals": 6, "symbol": "BUZZ", "liquidity": "4849651.7572", "volume24": "45606448.7207166"}, {"id": "solana_G3tYkTEg2jVq7RhDgLTgTMqQ17qAcT3dMKpUurBcpump", "chain": "solana", "address": "G3tYkTEg2jVq7RhDgLTgTMqQ17qAcT3dMKpUurBcpump", "decimals": 6, "symbol": "SILKROAD", "liquidity": "217678.7993", "volume24": "21166649.3766344"}, {"id": "eth_0x1121acc14c63f3c872bfca497d10926a6098aac5", "chain": "eth", "address": "0x1121acc14c63f3c872bfca497d10926a6098aac5", "decimals": 18, "symbol": "DOGE", "liquidity": "4609802.8125", "volume24": "9375145.415924"}, {"id": "solana_Faph9CjPwV9pRz642sbgnhhXVQFhQJZrWp8jspEDpump", "chain": "solana", "address": "Faph9CjPwV9pRz642sbgnhhXVQFhQJZrWp8jspEDpump", "decimals": 6, "symbol": "STARDM", "liquidity": "582927.2136", "volume24": "30898348.5310135"}, {"id": "solana_Cy1GS2FqefgaMbi45UunrUzin1rfEmTUYnomddzBpump", "chain": "solana", "address": "Cy1GS2FqefgaMbi45UunrUzin1rfEmTUYnomddzBpump", "decimals": 6, "symbol": "MOBY", "liquidity": "2734843.3251", "volume24": "36012516.8403732"}, {"id": "solana_D9FaAohKSPR3WpDdLPnM4fLSH8d8JwJRrEZf6TDzpump", "chain": "solana", "address": "D9FaAohKSPR3WpDdLPnM4fLSH8d8JwJRrEZf6TDzpump", "decimals": 6, "symbol": "HQ", "liquidity": "854919.7113", "volume24": "74406952.788585"}, {"id": "solana_GekTNfm84QfyP2GdAHZ5AgACBRd69aNmgA5FDhZupump", "chain": "solana", "address": "GekTNfm84QfyP2GdAHZ5AgACBRd69aNmgA5FDhZupump", "decimals": 6, "symbol": "GRIFT", "liquidity": "4495968.6394", "volume24": "37926860.7270935"}, {"id": "solana_8a6WvkVRevWM1W3HFwTPfuLMinvahxNNQb5n6VYipump", "chain": "solana", "address": "8a6WvkVRevWM1W3HFwTPfuLMinvahxNNQb5n6VYipump", "decimals": 6, "symbol": "DOGE", "liquidity": "491464.8165", "volume24": "48459338.8224491"}, {"id": "solana_89nnWMkWeF9LSJvAWcN2JFQfeWdDk6diKEckeToEU1hE", "chain": "solana", "address": "89nnWMkWeF9LSJvAWcN2JFQfeWdDk6diKEckeToEU1hE", "decimals": 6, "symbol": "sora", "liquidity": "1210640.9615", "volume24": "18291078.1452867"}, {"id": "solana_9UYAYvVS2cZ3BndbsoG1ScJbjfwyEPGxjE79hh5ipump", "chain": "solana", "address": "9UYAYvVS2cZ3BndbsoG1ScJbjfwyEPGxjE79hh5ipump", "decimals": 6, "symbol": "DOGEAI", "liquidity": "2027469.7265", "volume24": "70958592.9983459"}, {"id": "solana_Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump", "chain": "solana", "address": "Dfh5DzRgSvvCFDoYc2ciTkMrbDfRKybA4SoFbPmApump", "decimals": 6, "symbol": "pippin", "liquidity": "6182340.1298", "volume24": "40404944.799696"}, {"id": "solana_CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump", "chain": "solana", "address": "CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump", "decimals": 6, "symbol": "GOAT", "liquidity": "8299486.5769", "volume24": "58085814.3138486"}, {"id": "solana_2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv", "chain": "solana", "address": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv", "decimals": 6, "symbol": "PENGU", "liquidity": "17804320.9623", "volume24": "53566495.6925008"}, {"id": "solana_8SpPaFLycx897D6sowPZkEkcNdDahzRZb5itr6D8pump", "chain": "solana", "address": "8SpPaFLycx897D6sowPZkEkcNdDahzRZb5itr6D8pump", "decimals": 6, "symbol": "LEA", "liquidity": "898603.8751", "volume24": "7083582.16929087"}, {"id": "solana_7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr", "chain": "solana", "address": "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr", "decimals": 9, "symbol": "POPCAT", "liquidity": "14409294.5752", "volume24": "12799882.1271581"}, {"id": "solana_61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump", "chain": "solana", "address": "61V8vBaqAGMpgDQi4JcAwo1dmBGHsyhzodcPqnEVpump", "decimals": 6, "symbol": "arc", "liquidity": "9090888.9097", "volume24": "29850973.5782481"}, {"id": "solana_AUdUEc98MGfEHJiJfCgMaW8gKdcfNDio8BFzGKBwjztC", "chain": "solana", "address": "AUdUEc98MGfEHJiJfCgMaW8gKdcfNDio8BFzGKBwjztC", "decimals": 4, "symbol": "Digi", "liquidity": "349483.5401", "volume24": "1655288.52906674"}, {"id": "solana_AanGGVkCUy297vw1zHKnDxCMA5HFoxH98JjhGXaqpump", "chain": "solana", "address": "AanGGVkCUy297vw1zHKnDxCMA5HFoxH98JjhGXaqpump", "decimals": 6, "symbol": "SAFEMOON", "liquidity": "140163.2069", "volume24": "25238876.2505258"}, {"id": "solana_FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P", "chain": "solana", "address": "FUAfBo2jgks6gB4Z4LfZkqSZgzNucisEHqnNebaRxM1P", "decimals": 6, "symbol": "MELANIA", "liquidity": "207893909.8324", "volume24": "44723.5297344004"}, {"id": "solana_EkVYMGehJKAFowTQpGoxiCpDTRNEoGanwvNUYXhqpump", "chain": "solana", "address": "EkVYMGehJKAFowTQpGoxiCpDTRNEoGanwvNUYXhqpump", "decimals": 6, "symbol": "ROSSCOIN", "liquidity": "280840.0904", "volume24": "2550912.98161726"}, {"id": "solana_6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump", "chain": "solana", "address": "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump", "decimals": 6, "symbol": "VINE", "liquidity": "4421008.6026", "volume24": "69038617.1961435"}, {"id": "avax_0x152b9d0fdc40c096757f570a51e494bd4b943e50", "chain": "avax", "address": "0x152b9d0fdc40c096757f570a51e494bd4b943e50", "decimals": 8, "symbol": "BTC.b", "liquidity": "2975824.7063", "volume24": "11511984.9623195"}]
+[
+    {
+        "id": "solana_5D27EZ1prg14zDFfDXZPfebej2Q4mX12VBqLeXdppump",
+        "chain": "solana",
+        "address": "5D27EZ1prg14zDFfDXZPfebej2Q4mX12VBqLeXdppump",
+        "decimals": 6,
+        "symbol": "DeepSeek",
+        "liquidity": "411240.7002",
+        "volume24": "59951467.2965696"
+    },
+    {
+        "id": "solana_8FqXr6dw5NHA2TtwFeDz6q9p7y9uWyoEdZmpXqqUpump",
+        "chain": "solana",
+        "address": "8FqXr6dw5NHA2TtwFeDz6q9p7y9uWyoEdZmpXqqUpump",
+        "decimals": 6,
+        "symbol": "Seek",
+        "liquidity": "560374.8756",
+        "volume24": "71312210.6780778"
+    },
+    {
+        "id": "solana_BP8RUdhLKBL2vgVXc3n7oTSZKWaQVbD8S6QcPaMVBAPo",
+        "chain": "solana",
+        "address": "BP8RUdhLKBL2vgVXc3n7oTSZKWaQVbD8S6QcPaMVBAPo",
+        "decimals": 6,
+        "symbol": "FAFO",
+        "liquidity": "1083510.2981",
+        "volume24": "72910700.7989894"
+    },
+    {
+        "id": "solana_6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump",
+        "chain": "solana",
+        "address": "6AJcP7wuLwmRYLBNbi825wgguaPsWzPBEHcHndpRpump",
+        "decimals": 6,
+        "symbol": "VINE",
+        "liquidity": "10316534.1312",
+        "volume24": "38536243.8513417"
+    },
+    {
+        "id": "solana_H1sWyyDceAPpGmMUxVBCHcR2LrCjz933pUyjWSLpump",
+        "chain": "solana",
+        "address": "H1sWyyDceAPpGmMUxVBCHcR2LrCjz933pUyjWSLpump",
+        "decimals": 6,
+        "symbol": "GARLIC",
+        "liquidity": "404137.4263",
+        "volume24": "99243419.8296602"
+    },
+    {
+        "id": "solana_2GmUPhpe93kcTJZrC7NJ2keeDZRT5dBveUgegb13pump",
+        "chain": "solana",
+        "address": "2GmUPhpe93kcTJZrC7NJ2keeDZRT5dBveUgegb13pump",
+        "decimals": 6,
+        "symbol": "truth",
+        "liquidity": "696428.864",
+        "volume24": "103548760.87252"
+    },
+    {
+        "id": "solana_9RjwNo6hBPkxayWHCqQD1VjaH8igSizEseNZNbddpump",
+        "chain": "solana",
+        "address": "9RjwNo6hBPkxayWHCqQD1VjaH8igSizEseNZNbddpump",
+        "decimals": 6,
+        "symbol": "Stupid",
+        "liquidity": "1590183.9072",
+        "volume24": "39709904.9486186"
+    },
+    {
+        "id": "solana_6HgJHzGpq3fSLmkepsaC8F3VtpUWfXcG4hmUaf4Vpump",
+        "chain": "solana",
+        "address": "6HgJHzGpq3fSLmkepsaC8F3VtpUWfXcG4hmUaf4Vpump",
+        "decimals": 6,
+        "symbol": "REGENT",
+        "liquidity": "1094586.5726",
+        "volume24": "23250416.2281674"
+    },
+    {
+        "id": "solana_7d1vpt5eri79nETcL74Punhp3mGkeBgUkMdPWep6pump",
+        "chain": "solana",
+        "address": "7d1vpt5eri79nETcL74Punhp3mGkeBgUkMdPWep6pump",
+        "decimals": 6,
+        "symbol": "SHY",
+        "liquidity": "421104.8109",
+        "volume24": "26637727.3399063"
+    },
+    {
+        "id": "solana_eL5fUxj2J4CiQsmW85k5FG9DvuQjjUoBHoQBi2Kpump",
+        "chain": "solana",
+        "address": "eL5fUxj2J4CiQsmW85k5FG9DvuQjjUoBHoQBi2Kpump",
+        "decimals": 6,
+        "symbol": "UFD",
+        "liquidity": "5420121.8396",
+        "volume24": "79198521.4781515"
+    },
+    {
+        "id": "solana_7XJiwLDrjzxDYdZipnJXzpr1iDTmK55XixSFAa7JgNEL",
+        "chain": "solana",
+        "address": "7XJiwLDrjzxDYdZipnJXzpr1iDTmK55XixSFAa7JgNEL",
+        "decimals": 6,
+        "symbol": "MLG",
+        "liquidity": "4346858.9328",
+        "volume24": "44570801.7693961"
+    },
+    {
+        "id": "solana_9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+        "chain": "solana",
+        "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+        "decimals": 6,
+        "symbol": "Fartcoin",
+        "liquidity": "21124680.1593",
+        "volume24": "63991191.8498785"
+    },
+    {
+        "id": "solana_UcG568xghf8kHkG1WXmhze9QYb7oTEzVFbXc4Qspump",
+        "chain": "solana",
+        "address": "UcG568xghf8kHkG1WXmhze9QYb7oTEzVFbXc4Qspump",
+        "decimals": 6,
+        "symbol": "LiLi",
+        "liquidity": "87149.525",
+        "volume24": "17444647.4201086"
+    },
+    {
+        "id": "solana_8PVFdKx7fX1FmmoASfTu5CUPEWuD1WY73Z24UTgCpump",
+        "chain": "solana",
+        "address": "8PVFdKx7fX1FmmoASfTu5CUPEWuD1WY73Z24UTgCpump",
+        "decimals": 6,
+        "symbol": "MPUP",
+        "liquidity": "431781.5384",
+        "volume24": "27063725.3945664"
+    },
+    {
+        "id": "solana_KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
+        "chain": "solana",
+        "address": "KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP",
+        "decimals": 6,
+        "symbol": "GRIFFAIN",
+        "liquidity": "8495112.8968",
+        "volume24": "24401402.5807881"
+    },
+    {
+        "id": "solana_2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+        "chain": "solana",
+        "address": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+        "decimals": 6,
+        "symbol": "PENGU",
+        "liquidity": "14649715.5714",
+        "volume24": "62749873.4335525"
+    },
+    {
+        "id": "solana_Dy7M5B3Z5GnyhyHKkcHRFpYxw6eyiF1gqsDTBiT4t4oQ",
+        "chain": "solana",
+        "address": "Dy7M5B3Z5GnyhyHKkcHRFpYxw6eyiF1gqsDTBiT4t4oQ",
+        "decimals": 6,
+        "symbol": "$MIA",
+        "liquidity": "324433.0433",
+        "volume24": "2959993.14495927"
+    },
+    {
+        "id": "solana_cu4tL3rQnmSDZ3BcafUgRgzL8rgsUCMst6vpzMApump",
+        "chain": "solana",
+        "address": "cu4tL3rQnmSDZ3BcafUgRgzL8rgsUCMst6vpzMApump",
+        "decimals": 6,
+        "symbol": "DEEPSHIT",
+        "liquidity": "106891.9801",
+        "volume24": "19705133.8284583"
+    },
+    {
+        "id": "solana_CJRXkuaDcnXpPB7yEYw5uRp4F9j57DdzmmJyp37upump",
+        "chain": "solana",
+        "address": "CJRXkuaDcnXpPB7yEYw5uRp4F9j57DdzmmJyp37upump",
+        "decimals": 6,
+        "symbol": "ONDA",
+        "liquidity": "542092.1135",
+        "volume24": "8059779.21509788"
+    },
+    {
+        "id": "solana_JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+        "chain": "solana",
+        "address": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+        "decimals": 6,
+        "symbol": "JUP",
+        "liquidity": "11220793.2871",
+        "volume24": "66158844.7730111"
+    },
+    {
+        "id": "solana_CWX6t6pGJ1zsnuywnyd2ZMZJ7inB2sWuPdsteoT6pump",
+        "chain": "solana",
+        "address": "CWX6t6pGJ1zsnuywnyd2ZMZJ7inB2sWuPdsteoT6pump",
+        "decimals": 6,
+        "symbol": "ETF500",
+        "liquidity": "1363836.6163",
+        "volume24": "6403205.88887405"
+    },
+    {
+        "id": "solana_HNg5PYJmtqcmzXrv6S9zP1CDKk5BgDuyFBxbvNApump",
+        "chain": "solana",
+        "address": "HNg5PYJmtqcmzXrv6S9zP1CDKk5BgDuyFBxbvNApump",
+        "decimals": 6,
+        "symbol": "ALCH",
+        "liquidity": "3224139.8475",
+        "volume24": "5672837.06260008"
+    },
+    {
+        "id": "solana_CboMcTUYUcy9E6B3yGdFn6aEsGUnYV6yWeoeukw6pump",
+        "chain": "solana",
+        "address": "CboMcTUYUcy9E6B3yGdFn6aEsGUnYV6yWeoeukw6pump",
+        "decimals": 6,
+        "symbol": "Butthole",
+        "liquidity": "1991593.041",
+        "volume24": "3416156.138014"
+    },
+    {
+        "id": "solana_6GjTpbuTx5AWAATbUhE5QHC295fj2gzjYFfNtqSBpump",
+        "chain": "solana",
+        "address": "6GjTpbuTx5AWAATbUhE5QHC295fj2gzjYFfNtqSBpump",
+        "decimals": 6,
+        "symbol": "PWOG",
+        "liquidity": "60364.25",
+        "volume24": "2193756.6284988"
+    },
+    {
+        "id": "solana_FprQaYuyA4CN1f7UtLd7Vd1NR9vyACBy91cE8tiGpump",
+        "chain": "solana",
+        "address": "FprQaYuyA4CN1f7UtLd7Vd1NR9vyACBy91cE8tiGpump",
+        "decimals": 6,
+        "symbol": "MARIO",
+        "liquidity": "341587.1279",
+        "volume24": "3505494.38319354"
+    },
+    {
+        "id": "solana_97bR1cWyHXXSbPhg6eZkBGwwdKTV5ru1oJbNrXoopump",
+        "chain": "solana",
+        "address": "97bR1cWyHXXSbPhg6eZkBGwwdKTV5ru1oJbNrXoopump",
+        "decimals": 6,
+        "symbol": "VISA",
+        "liquidity": "53680.9436",
+        "volume24": "1228344.75197358"
+    },
+    {
+        "id": "solana_3gC8oidaJ61fkB2QCYvm9xKMZG8szBgBMbuLAGgNeGJD",
+        "chain": "solana",
+        "address": "3gC8oidaJ61fkB2QCYvm9xKMZG8szBgBMbuLAGgNeGJD",
+        "decimals": 6,
+        "symbol": "NIBBLES",
+        "liquidity": "1289477.3012",
+        "volume24": "1214109.91518094"
+    }
+]
